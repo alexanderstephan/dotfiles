@@ -1,0 +1,48 @@
+
+icons = "awesome"
+
+[theme]
+name = "plain"
+
+[theme.overrides]
+idle_bg = "#2f343f"
+idle_fg = "#f3f4f5"
+separator_bg = "#2f343f"
+separator_fg = "#f3f4f5"  
+info_bg = "#2f343f"
+good_bg = "#2f343f"
+warning_bg = "#2f343f"
+
+[[block]]
+block = "speedtest"
+bytes = true
+interval = 1800
+
+[[block]]
+block = "weather"
+format = "{weather} ({location}) {temp}°, {wind} km/s"
+service = { name = "openweathermap", api_key = "aae991e9cb7dc0f766979a86d1e4d02d", city_id = "3207893", units = "metric" }
+
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mup}%"
+format_swap = "{SUp}%"
+
+[[block]]
+block = "cpu"
+interval = 1
+
+[[block]]
+block = "load"
+interval = 1
+format = "{1m}"
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "time"
+interval = 60
+format = "%a %d/%m %R"

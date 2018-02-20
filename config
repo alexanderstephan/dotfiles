@@ -179,8 +179,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 
 exec feh --bg-scale /mnt/Nextcloud/Bildschirmhintergründe/Eternity\ \(Final\)_preview.png
-exec "setxkbmap -layout us,de"
-exec "setxkbmap -option 'grp:alt_shift_toggle'"
+exec "setxkbmap -layout de"
 exec --no-startup-id telegram-desktop
 exec --no-startup-id discord
 exec --no-startup-id firefox

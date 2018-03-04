@@ -5,13 +5,13 @@ icons = "awesome"
 name = "plain"
 
 [theme.overrides]
-idle_bg = "#2f343f"
-idle_fg = "#f3f4f5"
-separator_bg = "#2f343f"
-separator_fg = "#f3f4f5"  
-info_bg = "#2f343f"
-good_bg = "#2f343f"
-warning_bg = "#2f343f"
+idle_bg = "#212121"
+idle_fg = "#FFFFFF"
+separator_bg = "#212121"
+separator_fg = "#f3f4f5"
+info_bg = "#212121"
+good_bg = "#212121"
+warning_bg = "#212121"
 
 [[block]]
 block = "speedtest"

@@ -1,4 +1,4 @@
-**Welcome to my Arch Linux Rice,**
+**Welcome to my *Arch Linux* Rice,**
 
 in here you can find all the important dotfiles for my rice.
 

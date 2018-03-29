@@ -16,5 +16,5 @@ See here for an example: [Click Me!](https://github.com/alexanderstephan/i3-dotf
 
 
 Wallpaper dump that also  includes the one used within the Screenshot:
-[Click here for the wallpapers](https://imgur.com/gallery/SELjK)
+[Click here for the wallpapers!](https://imgur.com/gallery/SELjK)
 

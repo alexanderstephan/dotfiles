@@ -15,5 +15,6 @@ After you installed all sufficient programs, just add the content of the templat
 See here for an example: [Click Me!](https://github.com/alexanderstephan/i3-dotfiles/blob/master/Example.png?raw=true)
 
 
-Wallpaper used in the Screenshot:
+Wallpaper dump that also  includes the one used within the Screenshot:
+[Click here for the wallpapers](https://imgur.com/gallery/SELjK)
 

@@ -76,16 +76,16 @@ bindsym $mod+a focus parent
 
 # Setting variables for the different workspaces
 # Invidually assigned FontAwesome icons (just copy them from the FA-Cheatsheet)
-set $workspace1 "1: Terminal "
-set $workspace2 "2: Web "
-set $workspace3 "3: Code "
-set $workspace4 "4: Work "
-set $workspace5 "5: Music "
-set $workspace6 "6: Gaming "
-set $workspace7 "7: Messaging "
-set $workspace8 "8: Trading"
-set $workspace9 "9: Mailing"
-set $workspace10 "10: Productivity"
+set $workspace1 "1: "
+set $workspace2 "2: "
+set $workspace3 "3: "
+set $workspace4 "4: "
+set $workspace5 "5: "
+set $workspace6 "6: "
+set $workspace7 "7: "
+set $workspace8 "8: "
+set $workspace9 "9: "
+set $workspace10 "10: "
 
 # Switch to the specified workspace
 bindsym $mod+1 workspace $workspace1

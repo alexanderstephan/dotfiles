@@ -127,7 +127,7 @@ ramp-signal-foreground = ${colors.foreground}
 
 [module/eth]
 type = internal/network
-interface = enp0s25
+interface = enp4s0
 interval = 3.0
 
 format-connected = <label-connected>

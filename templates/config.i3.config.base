@@ -5,11 +5,9 @@ for_window [class="^.*"] border pixel 3
 for_window [class="GLava"] border none
 
 # Set Urxvtc as default terminal
-
 set $terminal urxvtc
 
 # Sets the wpgtk color variables
-
 set $coloract "#<COLORACT>"
 set $colorin "#<COLORIN>"
 set_from_resource $color15 i3wm.color15 "#<COLOR15>"

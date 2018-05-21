@@ -1,33 +1,45 @@
 
 URxvt*scrollBar: false
-URxvt.font: xft:Roboto Mono:size=10
+URxvt.font: xft:Hack:size=10
 
-*foreground:        #B2A191
-*background:        #171717
-*borderColor:       #171717
-*cursorColor:       #C7A551
+! special
+*.foreground:   #ffffff
+*.background:   #000000
+*.cursorColor:  #ffffff
 
+! black
+*.color0:       #101010
+*.color8:       #404040
 
-*color0:  #1c1c1c
-*color8:  #3d3a3a
-*color1:  #d770af
-*color9:  #d28abf
-*color2 : #9acc79
-*color10: #8fb676
-*color3:  #d0d26b
-*color11: #c8bc45
-*color4 : #77b6c5
-*color12: #8fa7b9
-*color5:  #a488d9
-*color13: #bd89de
-*color6:  #7fcab3
-*color14: #6ec2a8
-*color7:  #8d8d8d
-*color15: #dad3d3
+! red
+*.color1:       #e84f4f
+*.color9:       #d23d3d
+
+! green
+*.color2:       #b8d68c
+*.color10:      #a0cf5d
+
+! yellow
+*.color3:       #e1aa5d
+*.color11:      #f39d21
+
+! blue
+*.color4:       #7dc1cf
+*.color12:      #4e9fb1
+
+! magenta
+*.color5:       #9b64fb
+*.color13:      #8542ff
+
+! cyan
+*.color6:       #6d878d
+*.color14:      #42717b
+
+! white
+*.color7:       #dddddd
+*.color15:      #dddddd
 
 !Set text color
-URxvt.foreground : #FFFFFF
 !Set transparency
-URxvt*transparent: false
-URxvt*shading: 90
-]4;0;#061A16\]4;1;#639697\]4;2;#79BAC2\]4;3;#95B8BA\]4;4;#ACD2D4\]4;5;#B6CAF7\]4;6;#C1D3F4\]4;7;#e0eeef\]4;8;#0c3b31\]4;9;#70d2d4\]4;10;#88ffff\]4;11;#abffff\]4;12;#c6ffff\]4;13;#bee6ff\]4;14;#c7eeff\]4;15;#f6ffff\]10;#f6ffff\]11;#061A16\]12;#639697\]13;#f6ffff\]17;#f6ffff\]19;#061A16\[s[1000H[8m]708;#061A16\[u]13;#e0eeef\
+URxvt*transparent: true
+URxvt*shading: 40

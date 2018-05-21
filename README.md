@@ -89,7 +89,8 @@ echo KEYMAP=de-latin1 > /etc/vconsole.conf
 - Timezone
 
 ```shell
-`ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime`
+`ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+```
 
 
 - Mirrors
@@ -102,12 +103,14 @@ grep -E -A 1 ".*Germany.*$" /etc/pacman.d/mirrorlist.bak | sed '/--/d' > /etc/pa
 - Local DNS
 
 ```shell
-nano /etc/hosts```
-  ```
-  `#<ip-address>	<hostname.domain.org>	<hostname>
+nano /etc/hosts
+```
+  
+ ```
+  #<ip-address>	<hostname.domain.org>	<hostname>
   127.0.0.1	localhost.localdomain	localhost
   ::1		localhost.localdomain	localhost
-  ```
+ ```
  
 - Uncomment [multilib] to add 32-bit support
 

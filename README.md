@@ -13,6 +13,7 @@ List of noticable Programs:
 In order to make the arch/i3 installation process more smooth and efficient I will also provide a brief guide, which is based on a gist I wrote a while ago. Key features of this install are full disk encryption as well as several optimizations for flash drives.
 
 **Warranty Disclaimer:**
+
 I am not responsible for data loss, possible hardware failures, thermonuclear war,
 or you getting fired because your arch driven atomic plant failed.
 

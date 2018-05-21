@@ -48,7 +48,7 @@ After booting the arch iso you'll will have to proceed with the following steps:
 `mount <devicename>1 /mnt/boot`
 
 - Install base system
-  
+
 `pacstrap /mnt base base-devel intel-ucode`
 
 - Write fstab (contains all the drives that will be mounted upon booting)

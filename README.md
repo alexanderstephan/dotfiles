@@ -32,9 +32,13 @@ After booting the arch iso you'll will have to proceed with the following steps:
 - Create boot and root partition
 
 `parted -a optimal /dev/<devicename> mklabel gpt mkpart primary 0% 257MiB name 1 boot mkpart primary 257MiB 100% name 2 root`
+
 `mkfs.btrfs -L boot /dev/<devicename>1`
+
 `cryptsetup luksFormat /dev/<devicename>2`
+
 `cryptsetup open /dev/<devicename>2 root`
+
 `mkfs.f2fs -l root /dev/mapper/root`
   
 - Mount devices

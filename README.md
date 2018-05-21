@@ -23,89 +23,89 @@ After booting the arch iso you'll will have to proceed with the following steps:
 
 - Temporarely load your preferred keyboard layout
 
-'loadkeys de'
+`loadkeys de`
 
 - Find out your block device name
 
-'lsblk' or 'lsblk -Sp'
+`lsblk' or 'lsblk -Sp`
 
 - Create boot and root partition
 
-'parted -a optimal /dev/<devicename> mklabel gpt mkpart primary 0% 257MiB name 1 boot mkpart primary 257MiB 100% name 2 root
+`parted -a optimal /dev/<devicename> mklabel gpt mkpart primary 0% 257MiB name 1 boot mkpart primary 257MiB 100% name 2 root
 mkfs.btrfs -L boot /dev/<devicename>1
 cryptsetup luksFormat /dev/<devicename>2
 cryptsetup open /dev/<devicename>2 root
-mkfs.f2fs -l root /dev/mapper/root'
-  
+mkfs.f2fs -l root /dev/mapper/root`
+  
 - Mount devices
 
-'mount /dev/mapper/root /mnt
+`mount /dev/mapper/root /mnt
 mkdir /mnt/boot
-mount <devicename>1 /mnt/boot'
+mount <devicename>1 /mnt/boot`
 
 - Install base system
-  
-'pacstrap /mnt base base-devel intel-ucode'
+  
+`pacstrap /mnt base base-devel intel-ucode`
 
 - Write fstab (contains all the drives that will be mounted upon booting)
 
-'genfstab -p /mnt > /mnt/etc/fstab'
+`genfstab -p /mnt > /mnt/etc/fstab`
 
 
 - Change root envirement to freshly installed base system
 
-'arch-chroot /mnt/'
+`arch-chroot /mnt/`
 
 - Name your machine
 
-'echo myhost > /etc/hostname'
+`echo myhost > /etc/hostname`
 
 - Locals
 
-'echo LANG=en_US.UTF-8 > /etc/locale.conf
+`echo LANG=en_US.UTF-8 > /etc/locale.conf
 nano /etc/locale.gen
 locale-gen
-echo KEYMAP=de-latin1 > /etc/vconsole.conf'
+echo KEYMAP=de-latin1 > /etc/vconsole.conf`
 
 
 - Timezone
 
-'ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime'
+`ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime`
 
 
 - Mirrors
-'cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
-grep -E -A 1 ".*Germany.*$" /etc/pacman.d/mirrorlist.bak | sed '/--/d' > /etc/pacman.d/mirrorlist'
+`cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+grep -E -A 1 ".*Germany.*$" /etc/pacman.d/mirrorlist.bak | sed '/--/d' > /etc/pacman.d/mirrorlist`
 
 - Local DNS
 
-'nano /etc/hosts
+`nano /etc/hosts
   #<ip-address>	<hostname.domain.org>	<hostname>
   127.0.0.1	localhost.localdomain	localhost
-  ::1		localhost.localdomain	localhost'
+  ::1		localhost.localdomain	localhost`
  
 - Uncomment [multilib] to add 32-bit support
 
-'nano /etc/pacman.conf 
-pacman -Sy'
+`nano /etc/pacman.conf 
+pacman -Sy`
 
 - Set root password
 
-'passwd'
+`passwd`
 
 - Install syslinux bootloader
-'pacman -S gptfdisk syslinux
-syslinux-install_update -iam'
+`pacman -S gptfdisk syslinux
+syslinux-install_update -iam`
 
 - Just keep DEFAULT + LABELS and add "cryptdevice=/dev/nvme0n1p2:root root=/dev/mapper/root rw" after APPEND
 
-'nano /boot/syslinux/syslinux.cfg'
+`nano /boot/syslinux/syslinux.cfg`
 
 - Add "encrypt" Hook and create kernel image
 
-'nano /etc/mkinitcpio.conf 
+`nano /etc/mkinitcpio.conf 
 sudo pacman -S f2fs-tools btrfs-progs
-mkinitcpio -p linux'
+mkinitcpio -p linux`
 
 - Possibly do a reboot here
 

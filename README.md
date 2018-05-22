@@ -22,9 +22,10 @@ on your own to prevent possible failures or bugs.
 
 After booting the arch iso you'll will have to proceed with the following steps:
 
-- Temporarely load your preferred keyboard layout
-
-`loadkeys de`
+- Temporarily load your preferred keyboard layout
+```shell
+loadkeys de
+```
 
 - Find out your block device name
 ```shell

@@ -1,0 +1,178 @@
+# i3 gaps config file by Alexander Stephan 2018
+#
+# Check out https://i3wm.org/docs/userguide.html for a complete reference!
+for_window [class="^.*"] border pixel 1
+for_window [class="GLava"] border none
+for_window [class="Qutebrowser"] border none
+for_window [class="Firefox"] border none
+
+# Set Urxvtc as default terminal
+set $terminal urxvt
+
+# Sets the wpgtk color variables
+set $coloract "#44a8c4"
+set $colorin "#2f7387"
+set_from_resource $color15 i3wm.color15 "#f4ffff"
+set_from_resource $split i3wm.color10 "#4af3ff"
+set_from_resource $coloru i3wm.color2 "#49B7F7"
+set_from_resource $color0 i3wm.color0 "#000000"
+set_from_resource $color8 i3wm.color8 "#141414"
+
+# Determines the gap sizes
+gaps inner 5
+gaps outer 10
+
+# Sets compose key as standard modifier for all shortcuts
+set $mod Mod4
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+# Not really important since we are using i3-gaps, in which window titles are disabled by default
+font pango:Hack 8
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Start a terminal
+bindsym $mod+Return exec $terminal
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move focused window to another workspace
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Split workspace horizontally
+bindsym $mod+t split h
+
+# Split workspace vertically
+bindsym $mod+v split v
+
+# Use current program in fullscreen mode
+bindsym $mod+f fullscreen toggle
+
+# Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# Focus the parent container
+bindsym $mod+a focus parent
+
+# Setting variables for the different workspaces
+# Invidually assigned FontAwesome icons (just copy them from the FA-Cheatsheet)
+set $workspace1 "1: "
+set $workspace2 "2: "
+set $workspace3 "3: "
+set $workspace4 "4: "
+set $workspace5 "5: "
+set $workspace6 "6: "
+set $workspace7 "7: "
+set $workspace8 "8: "
+set $workspace9 "9: "
+set $workspace10 "10: "
+
+# Switch to the specified workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
+
+# Assign an application to a specific workspace
+# Make sure to use the instance class name
+assign [class="Xfce4-terminal"] $workspace1
+assign [class="Chromium"] $workspace2
+assign [class="qutebrowser"] $workspace2
+assign [class="Atom"] $workspace3
+assign [class="Spotify"] $workspace5
+assign [class="spotify"] $workspace5
+assign [class="discord"] $workspace7
+assign [class="Telegram"] $workspace7
+assign [class="Steam"] $workspace6
+assign [class="Code"] $workspace3
+assign [class="Thunderbird"] $workspace4
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# Exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # Back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+#
+# class                 border    backgr    text    indicator child_border
+client.focused          $coloract $coloract $color15 $split  $coloract
+client.focused_inactive $coloract $coloract $color15 $split  $coloract
+client.unfocused        $coloract $coloract $color15 $split $colorin
+client.urgent           $coloru   $coloru   $color15 $coloru $coloru
+client.placeholder      $color0   $color8   $color15 $color0 $color8
+client.background       $color0
+
+# Sets your keyboard layout
+# Swapped escape with capslock for using vim like programs
+exec --no-startup-id "setxkbmap -layout de -option caps:swapescape"
+
+# Apps that will start up on login
+# --no-startup-id prevents a xorg notifcation from being sent
+# Keep this in mind if you encounter a watch icon on your cursor
+bindsym $mod+z exec "enpass"
+exec --no-startup-id "excalibar &"
+exec --no-startup-id "compton"
+exec --no-startup-id "xrdb ~/.Xresources"
+exec --no-startup-id "nitrogen --restore &"
+# Rofi is a good replacement for dmenu
+# Is also affected by the wpgtk generated color schemes
+bindsym $mod+d exec rofi -show run -modi run -font "Roboto 10"

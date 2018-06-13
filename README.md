@@ -140,7 +140,7 @@ syslinux-install_update -iam
 nano /boot/syslinux/syslinux.cfg
 ```
 
-- Add "encrypt" Hook and create kernel image
+- Add "encrypt" Hook in mkinitcpio.conf, install fileystem tools and create kernel image
 
 ```shell
 nano /etc/mkinitcpio.conf

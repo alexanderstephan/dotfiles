@@ -1,7 +1,7 @@
 # i3 gaps config file by Alexander Stephan 2018
 #
 # Check out https://i3wm.org/docs/userguide.html for a complete reference!
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 0
 for_window [class="GLava"] border none
 for_window [class="Qutebrowser"] border none
 for_window [class="Firefox"] border none
@@ -10,7 +10,7 @@ for_window [class="Firefox"] border none
 set $terminal urxvt
 
 # Sets the wpgtk color variables
-set $coloract "#44a8c4"
+set $coloract "#666666"
 set $colorin "#2f7387"
 set_from_resource $color15 i3wm.color15 "#f4ffff"
 set_from_resource $split i3wm.color10 "#4af3ff"
@@ -18,9 +18,9 @@ set_from_resource $coloru i3wm.color2 "#49B7F7"
 set_from_resource $color0 i3wm.color0 "#000000"
 set_from_resource $color8 i3wm.color8 "#141414"
 
-# Determines the gap sizes
-gaps inner 5
-gaps outer 10
+# Gap sizes
+gaps inner 10
+gaps outer 20
 
 # Sets compose key as standard modifier for all shortcuts
 set $mod Mod4
@@ -28,7 +28,7 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # Not really important since we are using i3-gaps, in which window titles are disabled by default
-font pango:Hack 8
+font pango:Noto Sans 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -77,10 +77,10 @@ bindsym $mod+a focus parent
 # Setting variables for the different workspaces
 # Invidually assigned FontAwesome icons (just copy them from the FA-Cheatsheet)
 set $workspace1 "1: "
-set $workspace2 "2: "
+set $workspace2 "2: "
 set $workspace3 "3: "
 set $workspace4 "4: "
-set $workspace5 "5: "
+set $workspace5 "5: "
 set $workspace6 "6: "
 set $workspace7 "7: "
 set $workspace8 "8: "
@@ -172,7 +172,9 @@ bindsym $mod+z exec "enpass"
 exec --no-startup-id "excalibar &"
 exec --no-startup-id "compton"
 exec --no-startup-id "xrdb ~/.Xresources"
-exec --no-startup-id "nitrogen --restore &"
+exec --no-startup-id "feh --bg-scale ~/Downloads/farns.jpg"
+exec --no-startup-id ~/Downloads/blurme/blurme &
+exec --no-startup-id redshift &
 # Rofi is a good replacement for dmenu
 # Is also affected by the wpgtk generated color schemes
 bindsym $mod+d exec rofi -show run -modi run -font "Roboto 10"

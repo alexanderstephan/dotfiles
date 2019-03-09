@@ -175,6 +175,92 @@ exec --no-startup-id "xrdb ~/.Xresources"
 exec --no-startup-id "feh --bg-scale ~/Downloads/farns.jpg"
 exec --no-startup-id ~/Downloads/blurme/blurme &
 exec --no-startup-id redshift &
+
 # Rofi is a good replacement for dmenu
 # Is also affected by the wpgtk generated color schemes
 bindsym $mod+d exec rofi -show run -modi run -font "Roboto 10"
+
+# #---Extra XF86 Keys---# #
+# These are the extra media keys that some keyboards have.
+bindsym XF86AudioMute		exec --no-startup-id lmc mute
+bindsym XF86AudioLowerVolume	exec --no-startup-id lmc down 5
+bindsym Shift+XF86AudioLowerVolume	exec --no-startup-id lmc down 10
+bindsym Control+XF86AudioLowerVolume	exec --no-startup-id lmc down 1
+bindsym XF86AudioRaiseVolume	exec --no-startup-id lmc up 5
+bindsym Shift+XF86AudioRaiseVolume	exec --no-startup-id lmc up 10
+bindsym Control+XF86AudioRaiseVolume	exec --no-startup-id lmc up 1
+bindsym XF86PowerOff		exec --no-startup-id prompt "Shutdown computer?" "$shutdown"
+##bindsym XF86Copy		exec
+##bindsym XF86Open		exec
+##bindsym XF86Paste		exec
+##bindsym XF86Cut		exec
+##bindsym XF86MenuKB		exec
+bindsym XF86Calculator		exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
+##bindsym XF86Sleep		This binding is typically mapped by systemd automatically.
+##bindsym XF86WakeUp		exec
+bindsym XF86Explorer		exec $term -e $FILE
+##bindsym XF86Send		exec
+##bindsym XF86Xfer		exec
+bindsym XF86WWW			exec --no-startup-id $BROWSER
+##bindsym XF86DOS		exec
+bindsym XF86ScreenSaver		exec exec --no-startup-id lockscreen
+##bindsym XF86RotateWindows	exec
+##bindsym XF86TaskPane		exec
+##bindsym XF86Favorites		exec
+bindsym XF86MyComputer		exec $term -e $FILE
+##bindsym XF86Back		exec
+##bindsym XF86Forward		exec
+bindsym XF86Eject		exec --no-startup-id dmenuumount
+bindsym XF86AudioNext		exec --no-startup-id lmc next
+bindsym XF86AudioPlay		exec --no-startup-id lmc toggle
+bindsym XF86AudioPrev		exec --no-startup-id lmc prev
+bindsym XF86AudioStop		exec --no-startup-id lmc toggle
+##bindsym XF86AudioRecord
+bindsym XF86AudioRewind		exec --no-startup-id lmc back 10
+bindsym XF86AudioForward	exec --no-startup-id lmc forward 10
+##bindsym XF86Phone		exec
+##bindsym XF86Tools		exec
+bindsym XF86HomePage		exec $BROWSER https://lukesmith.xyz
+bindsym XF86Reload		restart
+##bindsym XF86ScrollUp		exec
+##bindsym XF86ScrollDown		exec
+##bindsym XF86New		exec
+##bindsym XF86LaunchA		exec
+##bindsym XF86LaunchB		exec
+##bindsym XF86Launch2		exec
+##bindsym XF86Launch3		exec
+##bindsym XF86Launch4		exec
+##bindsym XF86Launch5		exec
+##bindsym XF86Launch6		exec
+##bindsym XF86Launch7		exec
+##bindsym XF86Launch8		exec
+##bindsym XF86Launch9		exec
+#bindsym XF86AudioMicMute	exec $micmute
+bindsym XF86TouchpadToggle	exec --no-startup-id toggletouchpad
+bindsym XF86TouchpadOn		exec --no-startup-id synclient TouchpadOff=0
+bindsym XF86TouchpadOff		exec --no-startup-id synclient TouchpadOff=1
+bindsym XF86Suspend		exec --no-startup-id lockscreen
+bindsym XF86Close		kill
+bindsym XF86WebCam		exec --no-startup-id camtoggle
+bindsym XF86Mail		exec $term -e neomutt && pkill -RTMIN+12 i3blocks
+bindsym XF86Messenger		exec $term -e weechat
+bindsym XF86Search		exec $BROWSER https://duckduckgo.com
+##bindsym XF86Go			exec
+##bindsym XF86Finance		exec
+##bindsym XF86Game		exec
+bindsym XF86Shop		exec $BROWSER https://ebay.com
+bindsym XF86MonBrightnessDown	exec --no-startup-id xbacklight -dec 15
+bindsym XF86MonBrightnessUp	exec --no-startup-id xbacklight -inc 15
+bindsym XF86AudioMedia		exec --no-startup-id $term -e ncmpcpp
+bindsym XF86Display		exec --no-startup-id displayselect
+#bindsym XF86KbdLightOnOff	exec
+#bindsym XF86KbdBrightnessDown	exec
+#bindsym XF86KbdBrightnessUp	exec
+##bindsym XF86Reply		exec
+##bindsym XF86MailForward	exec
+##bindsym XF86Save		exec
+bindsym XF86Documents		exec $term -e $FILE ~/Documents
+##bindsym XF86Battery		exec
+##bindsym XF86Bluetooth		exec
+bindsym XF86WLAN exec $netrefresh
+

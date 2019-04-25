@@ -2,14 +2,34 @@
 # ~/.bashrc
 #
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-#export EDITOR = 'vim'
-#export GIT_EDITOR = 'vim'
-#export ARCHFLAGS = "-arch x86_64"
-set -o vi
-alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
-PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
-#(cat ~/.config/wpg/sequences &)
+shopt -s autocd
+
+[[ $- != *i* ]] && return
+PS1='[\u@\h \W]\$ '
+
+alias ls="ls --color=auto" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \ 
+	up="sudo ip link set wlp3s0 up && sudo ip link enp0s25 up" \ 
+	ka="killall" \
+	down="sudo ip link set wlp3s0 down && sudo ip link set enp0s25 down" \	
+	g="git" \ 
+	ga="git add *" \
+	xx="xrdb ~/.Xresources" \
+	p="sudo pacman" \
+	yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'" \
+	YT="youtube-viewer"
+	school="cd ~/Nextcloud/Documents/Schule/" \
+	seminar="vim ~/Nextcloud/Documents/Schule/FOS13/Seminararbeit/main.tex" \
+	sc="vim ~/.config/sway/config" \
+
+
+# If running from tty1 start sway
+if [ "$(tty)" = "/dev/tty1" ]; then
+	exec sway
+fi
+
+neofetch
+
+

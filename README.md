@@ -1,11 +1,7 @@
-In here you can find all the important dotfiles for my rice.
-
-List of noticable Programs:
-
-- urxvt   *Minimal Terminal Emulator with transparency support and a lot of customizability*
-- rofi    *Launcher*
-- excalibar *Sleek i3bar replacement written in C*
-- compton *Desktop compositor*
-- Ly *Sleek login manager also written in C*
-
-
+A collection of most of my settings on Linux. Finally made the switch to Wayland and I couldn't be happier.
+ 
+Key programs for my workflow:
+- [Sway](https://github.com/swaywm/sway)
+- [Waybar](https://github.com/Alexays/Waybar/)
+- [qutebrowser](https://github.com/qutebrowser/qutebrowser)
+- [Zathura](https://github.com/pwmt/zathura)

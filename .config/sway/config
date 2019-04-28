@@ -30,29 +30,14 @@ gaps inner 2
 gaps outer 8
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/alex/Downloads/undertow.png fill
+output * bg ~/Downloads/undertow.png fill
 
 # You can get the names of your outputs by running: swaymsg -t get_output
-output DP-1 pos 0 0 res 3840x2160
+output LVDS-1 pos 0 0 res 1600x900 
+output DP-1 pos 1600 0 res 2560x1440
 
 # Read .Xresources
 exec "xrdb ~/.Xresources"
-
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' \
-#               resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
-# Set layout on all devices to german
 
 input * {
 		xkb_layout de
@@ -202,10 +187,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
 exec waybar
 
 include /etc/sway/config.d/*

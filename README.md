@@ -1,4 +1,4 @@
-####### A collection of most of my settings on Linux. Finally made the switch to Wayland and I couldn't be happier.
+*A collection of most of my settings on Linux. Finally made the switch to Wayland and I couldn't be happier.*
 
 ### Quick guide on installing Arch:
 - [Click me!](https://discolovers.de/articles/2018-05/arch-rice-with-encryption) 

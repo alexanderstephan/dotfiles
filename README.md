@@ -1,7 +1,8 @@
 A collection of most of my settings on Linux. Finally made the switch to Wayland and I couldn't be happier.
 ### What it looks like
-![Basic setup](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
-[Wallpaper](https://positriondream.com)
+![alt text](https://github.com/alexanderstephan/dotfiles/blob/master/screenshot.png "Basic setup")
+
+- [Wallpaper](https://positriondream.com)
 ### Quick guide on installing Arch
 [Click me!](https://discolovers.de/articles/2018-05/arch-rice-with-encryption) 
  

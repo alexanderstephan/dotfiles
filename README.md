@@ -1,8 +1,13 @@
 A collection of most of my settings on Linux. Finally made the switch to Wayland and I couldn't be happier.
 
-### Quick guide on installing Arch
+### Quick guide on installing Arch:
 - [Click me!](https://discolovers.de/articles/2018-05/arch-rice-with-encryption) 
- 
+
+### What it looks like:
+![alt text](https://github.com/alexanderstephan/dotfiles/blob/master/screenshot.png "Basic setup")
+
+[Awesome wallpapers](https://positriondream.com)
+
 ### Key programs for my workflow:
 - [Sway](https://github.com/swaywm/sway)
 - [Waybar](https://github.com/Alexays/Waybar/)
@@ -13,12 +18,8 @@ A collection of most of my settings on Linux. Finally made the switch to Wayland
 - [calcurse](https://www.calcurse.org/)
 - [grim](https://github.com/emersion/grim)
 
-### What it looks like
-![alt text](https://github.com/alexanderstephan/dotfiles/blob/master/screenshot.png "Basic setup")
 
-[Awesome wallpapers](https://positriondream.com)
-
-### Battery life improvements on Arch
+### Battery life improvements on Arch:
 - [Powertop](https://software.intel.com/en-us/articles/powertop-primer-1/)
 ```shell
 sudo pacman -S powertop

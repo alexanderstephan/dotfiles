@@ -16,7 +16,7 @@ A collection of most of my settings on Linux. Finally made the switch to Wayland
 ### What it looks like
 ![alt text](https://github.com/alexanderstephan/dotfiles/blob/master/screenshot.png "Basic setup")
 
-[Wallpaper](https://positriondream.com)
+[Awesome wallpapers](https://positriondream.com)
 
 ### Battery life improvements on Arch
 - [Powertop](https://software.intel.com/en-us/articles/powertop-primer-1/)
@@ -25,6 +25,7 @@ sudo pacman -S powertop
 powertop --calibrate
 systemctl enable powertop.service
 ```
+
 - [TLP](https://wiki.archlinux.org/index.php/TLP)
 ```shell
 sudo pacman -S tlp

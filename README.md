@@ -5,5 +5,6 @@ A collection of most of my settings on Linux. Finally made the switch to Wayland
 - [Waybar](https://github.com/Alexays/Waybar/)
 - [Qutebrowser](https://github.com/qutebrowser/qutebrowser)
 - [Zathura](https://github.com/pwmt/zathura)
-- [Cmus](https://cmus.github.io/)
+- [cmus](https://cmus.github.io/)
 
+## Quick guide on installing Arch

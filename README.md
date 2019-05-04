@@ -1,5 +1,7 @@
 A collection of most of my settings on Linux. Finally made the switch to Wayland and I couldn't be happier.
-
+### What it looks like
+![Basic setup](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+[Wallpaper](https://positriondream.com)
 ### Quick guide on installing Arch
 [Click me!](https://discolovers.de/articles/2018-05/arch-rice-with-encryption) 
  
@@ -11,6 +13,7 @@ A collection of most of my settings on Linux. Finally made the switch to Wayland
 - [cmus](https://cmus.github.io/)
 - [neovim](https://neovim.io/)
 - [calcurse](https://www.calcurse.org/)
+- [grim](https://github.com/emersion/grim)
 
 ### Battery life improvements on Arch
 - [Powertop](https://software.intel.com/en-us/articles/powertop-primer-1/)

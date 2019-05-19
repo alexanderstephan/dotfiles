@@ -1,10 +1,11 @@
 
 {
     "layer": "top",
+    "position": "top",
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["network", "memory","pulseaudio","battery", "clock"],
-    "height": 25,
+    "modules-right": ["memory","cpu","pulseaudio","battery", "clock"],
+    "height": 30,
     "sway/window": {
         "max-length": 50
     },
@@ -19,6 +20,10 @@
     },
     "clock": {
         "format-alt": "{:%a, %d. %b  %H:%M}"
+    },
+        "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
     },
     "network": {
         "interface": "wlp3s0",

@@ -3,7 +3,7 @@
     "position": "top",
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["memory","cpu","pulseaudio","tray","battery","clock"],
+    "modules-right": ["memory","cpu","pulseaudio","battery","clock","tray"],
     "height": 30,
     "sway/window": {
         "max-length": 50
@@ -54,6 +54,6 @@
     },
     "tray": {
     	"icon-size": 18,
-	    "spacing": 12
+	"spacing": 12
     }
 }

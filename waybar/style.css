@@ -1,93 +1,65 @@
-* * {
-    border: none;
+* {
+    border: 0;
     border-radius: 0;
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    padding: 0 0;
+    font-family: Roboto, "Font Awesome";
+    font-size: 14px;
+    font-weight: bold;
     min-height: 0;
-}
+    margin-right: 3px;
+    margin-left: 3px;
+   }
 
 window#waybar {
-    background: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: #ffffff;
-    transition-property: background, background-color;
-    transition-duration: .5s;
+    color: #ebdbb2;
+    background: rgba(37,40,42,0.5);
 }
 
 window#waybar.hidden {
     opacity: 0.2;
 }
 
-/*
-window#waybar.empty {
-    background: transparent;
-}
-window#waybar.solo {
-    background: #FFFFFF;
-}
-*/
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
-}
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button {
     padding: 0 5px;
     background: transparent;
     color: #ffffff;
-    border-bottom: 3px solid transparent;
 }
 
 #workspaces button.focused {
-    background: #64727D;
-    border-bottom: 3px solid #ffffff;
+	color: yellow;
 }
 
-#workspaces button.urgent {
-    background-color: #eb4d4b;
-}
 
 #mode {
-    background: #64727D;
-    border-bottom: 3px solid #ffffff;
+    color: #282828;
+    background: #fabd2f;
 }
 
-#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor {
-    padding: 0 10px;
-    margin: 0 5px;
-    color: #ffffff;
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode {
+	padding: 0 10px;
 }
 
 #clock {
-    background-color: #916eff;
+    border-style: hidden;
+    background: transparent;
+}
+
+#backlight {
+    color: #3c3836;
+    background-color: #282828;
 }
 
 #battery {
-    background-color: #ffffff;
-    color: #000000;
+    color: #689d6a;
+    background-color: transparent;
 }
 
 #battery.charging {
-    color: #000000;
-    background-color: #76FF03;
-}
-
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
+    color: #98971a;
 }
 
 #battery.critical:not(.charging) {
-    background: #f53c3c;
-    color: #ffffff;
+    color: #fb4934;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -95,89 +67,57 @@ window#waybar.chromium {
     animation-direction: alternate;
 }
 
-label:focus {
-    background-color: #000000;
-}
-
 #cpu {
-    background: #2ecc71;
-    color: #000000;
+    color: #8ec07c;
+    background: #689d6a;
 }
 
 #memory {
-    background: #9b59b6;
-}
-
-#backlight {
-    background: #90b1b1;
+    color: #d3869b;
+    background: #b16286;
 }
 
 #network {
-    background: #2980b9;
+    color: #83a598;
+    background: #458588;
 }
 
 #network.disconnected {
-    background: #f53c3c;
+    background: #fb4934;
+    color: #cc241d;
 }
 
 #pulseaudio {
-    background: #FFFF00;
-    color: #000000;
+    color: #fabd2f;
+    background: #d79921;
 }
 
 #pulseaudio.muted {
-    background: #90b1b1;
-    color: #2a5c45;
-}
-
-#custom-media {
-    background: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
-}
-
-.custom-spotify {
-    background: #66cc99;
-}
-
-.custom-vlc {
-    background: #ffa000;
+    color: #282828;
+    background: #3c3836;
 }
 
 #temperature {
-    background: #f0932b;
+    color: #a89984;
+    background: #928374;
 }
 
 #temperature.critical {
-    background: #eb4d4b;
-}
-
-#tray {
-    background-color: #2980b9;
+    color: #d65d0e;
+    background: #fe8019;
 }
 
 #idle_inhibitor {
-    background-color: #2d3436;
+    font-weight: bold;
+    border-style: hidden;
+    background: transparent;
 }
 
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
+#tray {
+    border-style: hidden;
+    background-color: transparent;
 }
 
-#mpd {
-    background: #66cc99;
-    color: #2a5c45;
-}
-
-#mpd.disconnected {
-    background: #f53c3c;
-}
-
-#mpd.stopped {
-    background: #90b1b1;
-}
-
-#mpd.paused {
-    background: #51a37a;
+#clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #mode {
+	background: transparent;
 }

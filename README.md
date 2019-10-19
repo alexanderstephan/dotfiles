@@ -7,7 +7,7 @@
 ### Key programs for my workflow:
 - [Sway](https://github.com/swaywm/sway)
 - [Waybar](https://github.com/Alexays/Waybar/)
-- [Qutebrowser](https://github.com/qutebrowser/qutebrowser)
+- [st (Luke Smith Fork)](https://github.com/LukeSmithxyz/st)
 - [Zathura](https://github.com/pwmt/zathura)
 - [cmus](https://cmus.github.io/)
 - [neovim](https://neovim.io/)

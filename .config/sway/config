@@ -15,10 +15,11 @@ set $down j
 set $up k
 set $right l
 
-# Your preferred terminal emulator
+# Your preferred applications
 set $term /bin/st
-set $browser qutebrowser
-set $filemanager pcmanfm
+set $browser firefox
+set $filemanager ranger
+set $mail neomutt
 
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
@@ -31,13 +32,15 @@ default_border pixel 2
 gaps inner 10
 gaps outer 6
 
+
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
- output "*" bg /home/alex/Downloads/wallhaven-j5122w.jpg fill
-#output DP-1 bg ~/Nextcloud/Wallpaper/ace499cb179a4d56be296fa89b7156d0.jpeg fill
+exec ~/.azotebg
 
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-output LVDS-1 pos 0 0 res 1600x900
-output DP-1 pos 1600 0 res 2560x1440
+#output LVDS-1 pos 2560 0 res 1920x1080
+#output LVDS-1 pos 0 0 res 1920x1080
+#output LVDS-1 disable
+#output DP-1 pos 0 0 res 2560x1440
 
 # Read .Xresources
 exec "xrdb ~/.Xresources"
@@ -61,7 +64,10 @@ input * {
     bindsym $mod+q exec $browser
 
     # Start file browser
-    bindsym $mod+p exec $filemanager
+    bindsym $mod+p exec "/bin/st -e $filemanager"
+
+    # Start mail
+    bindsym $mod+m exec "/bin/st -e $mail"
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -83,6 +89,7 @@ input * {
     bindsym $mod+$down focus down
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
+
     # or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
@@ -94,6 +101,7 @@ input * {
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
+
     # ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
@@ -113,6 +121,7 @@ input * {
     bindsym $mod+8 workspace 8
     bindsym $mod+9 workspace 9
     bindsym $mod+0 workspace 10
+
     # move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace 1
     bindsym $mod+Shift+2 move container to workspace 2
@@ -165,6 +174,7 @@ input * {
     bindsym $mod+minus scratchpad show
 
 # Resizing containers:
+# Testing yadm :)
 
 mode "resize" {
     # left will shrink the containers width
@@ -188,15 +198,15 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# class                 border  backgr. text    indicator child_border
-client.focused           #be5046 #be5046 #be5046 #be5046   #be5046
-client.focused_inactive  #5c6370 #3b3228 #ffffff #5c6370   #5c6370
-client.unfocused         #5c6370 #3b3228 #ffffff #5c6370   #5c6370
-#client.urgent            #cb6077 #3b3228 #ffffff #cb6077   #cb6077
-#client.placeholder      #000000 #3b3228 #ffffff #000000   #0c0c0c
+# class                  border   backgr.  text     indic.    child_border
+client.focused           #283593  #283593  #283593  #283593   #283593
+client.focused_inactive  #5c6370  #3b3228  #ffffff  #5c6370   #5c6370
+client.unfocused         #5c6370  #3b3228  #ffffff  #5c6370   #5c6370
+client.urgent            #cb6077  #3b3228  #ffffff  #cb6077   #cb6077
+client.placeholder       #000000  #3b3228  #ffffff  #000000   #0c0c0c
 
 # Enable compability with X applications
-#xwayland enable
+xwayland enable
 
 # Map function buttons
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -207,7 +217,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym --release Print exec grim -g \"$(slurp)" - | wl-copy
 
-# Start status bar
+# Enable status bar
 exec waybar
-
+exec nm-applet --indicator
 include /etc/sway/config.d/*

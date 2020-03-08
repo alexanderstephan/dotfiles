@@ -31,6 +31,7 @@ source /usr/share/fzf/completion.zsh
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/alex/.zshrc'
 export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+export _JAVA_AWT_WM_NONREPARENTING=1
 autoload -Uz compinit
 compinit
 
@@ -79,8 +80,10 @@ alias school="cd ~/Nextcloud/Documents/Schule/"
 alias cloud="cd ~/Nextcloud"
 alias edubot="cd ~/Programming/edubot"
 alias dotfiles="cd ~/Programming/dotfiles"
-
-if [ "$(tty)" = "/dev/tty1" ]; then
-	exec sway
-fi
-neofetch
+alias pgdp="cd ~/Nextcloud/ExternalHDD/TUM/1.\ Semester/PGDP/"
+alias era="cd ~/Nextcloud/ExternalHDD/TUM/1.\ Semester/ERA/"
+alias ds="cd ~/Nextcloud/ExternalHDD/TUM/1.\ Semester/DS/"
+alias eidi="cd ~/Nextcloud/ExternalHDD/TUM/1.\ Semester/EIDI/"
+alias db="cd ~/Nextcloud/ExternalHDD/TUM/1.\ Semester/GDB/"
+alias fix="stty sane"
+alias tum="cd ~/Nextcloud/ExternalHDD/TUM"

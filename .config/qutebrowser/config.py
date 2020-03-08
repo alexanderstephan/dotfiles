@@ -11,6 +11,31 @@
 # Type: Dict
 c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save'}
 
+# Backend to use to display websites. qutebrowser supports two different
+# web rendering engines / backends, QtWebKit and QtWebEngine. QtWebKit
+# was discontinued by the Qt project with Qt 5.6, but picked up as a
+# well maintained fork: https://github.com/annulen/webkit/wiki -
+# qutebrowser only supports the fork. QtWebEngine is Qt's official
+# successor to QtWebKit. It's slightly more resource hungry than
+# QtWebKit and has a couple of missing features in qutebrowser, but is
+# generally the preferred choice.
+# Type: String
+# Valid values:
+#   - webengine: Use QtWebEngine (based on Chromium).
+#   - webkit: Use QtWebKit (based on WebKit, similar to Safari).
+c.backend = 'webengine'
+
+# Force software rendering for QtWebEngine. This is needed for
+# QtWebEngine to work with Nouveau drivers and can be useful in other
+# scenarios related to graphic issues.
+# Type: String
+# Valid values:
+#   - software-opengl: Tell LibGL to use a software implementation of GL (`LIBGL_ALWAYS_SOFTWARE` / `QT_XCB_FORCE_SOFTWARE_OPENGL`)
+#   - qt-quick: Tell Qt Quick to use a software renderer instead of OpenGL. (`QT_QUICK_BACKEND=software`)
+#   - chromium: Tell Chromium to disable GPU support and use Skia software rendering instead. (`--disable-gpu`)
+#   - none: Don't force software rendering.
+c.qt.force_software_rendering = 'none'
+
 # Always restore open sites when qutebrowser is reopened.
 # Type: Bool
 c.auto_save.session = True
@@ -63,6 +88,17 @@ c.input.links_included_in_focus_chain = True
 # Type: Bool
 c.scrolling.smooth = True
 
+# Hide the statusbar unless a message is shown.
+# Type: Bool
+c.statusbar.hide = True
+
+# Position of the status bar.
+# Type: VerticalPosition
+# Valid values:
+#   - top
+#   - bottom
+c.statusbar.position = 'top'
+
 # Open new tabs (middleclick/ctrl+click) in the background.
 # Type: Bool
 c.tabs.background = True
@@ -78,20 +114,7 @@ c.tabs.padding = {'bottom': 2, 'left': 5, 'right': 5, 'top': 2}
 #   - bottom
 #   - left
 #   - right
-c.tabs.position = 'top'
-
-# Format to use for the tab title. The following placeholders are
-# defined:  * `{perc}`: Percentage as a string like `[10%]`. *
-# `{perc_raw}`: Raw percentage, e.g. `10`. * `{title}`: Title of the
-# current web page. * `{title_sep}`: The string ` - ` if a title is set,
-# empty otherwise. * `{index}`: Index of this tab. * `{id}`: Internal
-# tab ID of this tab. * `{scroll_pos}`: Page scroll position. *
-# `{host}`: Host of the current web page. * `{backend}`: Either
-# ''webkit'' or ''webengine'' * `{private}`: Indicates when private mode
-# is enabled. * `{current_url}`: URL of the current web page. *
-# `{protocol}`: Protocol (http/https/...) of the current web page.
-# Type: FormatString
-c.tabs.title.format = '[{index}] {title}'
+c.tabs.position = 'bottom'
 
 # Format to use for the tab title for pinned tabs. The same placeholders
 # like for `tabs.title.format` are defined.
@@ -169,7 +192,7 @@ c.colors.statusbar.url.success.http.fg = '#ffe1e9'
 c.colors.statusbar.url.success.https.fg = '#e3e3ff'
 
 # Background color of the tab bar.
-# Type: QtColor
+# Type: QssColor
 c.colors.tabs.bar.bg = '#373438'
 
 # Color gradient start for the tab indicator.
@@ -210,4 +233,4 @@ c.fonts.statusbar = '11pt Roboto Monospace'
 
 # Font used in the tab bar.
 # Type: QtFont
-c.fonts.tabs = '8pt Roboto'
+c.fonts.tabs = '10pt Roboto'

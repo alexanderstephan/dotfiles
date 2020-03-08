@@ -4,6 +4,22 @@
 
 [Awesome wallpapers](https://positriondream.com)
 
+### How to comfortably manage my dotfiles
+
+- Install yadm via AUR (in this case with trizen) 
+```shell
+trizen -S yadm
+```
+
+- Change directory to home folder
+``` shell
+cd ~
+```
+- Clone the folder (yadm will do all the magic automatically)
+ ```shell 
+yadm clone https://github.com/alexanderstephan/dotfiles.git 
+```
+
 ### Key programs for my workflow:
 - [Sway](https://github.com/swaywm/sway)
 - [Waybar](https://github.com/Alexays/Waybar/)

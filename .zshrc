@@ -1,43 +1,37 @@
-source /usr/share/zsh/share/antigen.zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+source /Users/Alexander/.antigen.zsh
 
+# Load the oh-my-zsh's library
 antigen use oh-my-zsh
 
-# All my plugins in use
 antigen bundle git
 antigen bundle heroku
 antigen bundle pip
 antigen bundle command-not-found
+
+# Highlighting
 antigen bundle zsh-users/zsh-syntax-highlighting
-
-# Color theme
-antigen theme takashiyoshida
-
+antigen theme bira
 antigen apply
 
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
 
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
-setopt appendhistory autocd extendedglob nomatch
-unsetopt beep
-bindkey -v
+# User configuration
 
-# Fuzzy search
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/alex/.zshrc'
-export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
-export _JAVA_AWT_WM_NONREPARENTING=1
-autoload -Uz compinit
-compinit
+if type nvim > /dev/null 2>&1; then
+    alias vim='nvim'
+fi
 
-# Alias
 # Common commands
-alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
 alias up="sudo ip link set wlp3s0 up && sudo ip link set enp0s25 up"
@@ -56,34 +50,41 @@ alias pi="ssh pi@raspberrypi"
 alias off="halt -p"
 alias vim="nvim"
 alias v="nvim"
-alias sys="systemctl"
 
-# Quickly edit files
-alias seminar="vim ~/Nextcloud/Documents/Schule/FOS13/Seminararbeit/main.tex"
-alias sc="vim ~/.config/sway/config"
-alias vimrc="vim ~/.vimrc"
-alias bashrc="vim ~/.bashrc"
-alias zshrc="vim ~/.zshrc"
+# File paths
+alias tum='cd ~/Nextcloud/Local/TUM/2.Semester'
+alias linalg='cd ~/Nextcloud/Local/TUM/2.Semester/LINALG/'
+alias grnvs='cd ~/Nextcloud/Local/TUM/2.Semester/GRNVS/'
+alias eist='cd ~/Nextcloud/Local/TUM/2.Semester/EIST/'
+alias it='cd ~/Nextcloud/Local/TUM/2.Semester/Italienisch\ A1.2/'
+alias gad='cd ~/Nextcloud/Local/TUM/2.Semester/GAD/'
+alias erap='cd ~/Nextcloud/Local/TUM/2.Semester/ERA-Praktikum/'
+alias rechnerhalle='ssh stephaal@lxhalle.in.tum.de'
 
-# Git
-alias g="git"
-alias st="git status"
-alias com="git commit -m"
-alias clone="git clone"
-alias sth="git stash"
-alias lg="git log"
-alias u="git add -u"
-alias all="git add ."
+export GOPATH=~/Nextcloud/Local/Programming/go
+export PATH=$PATH:$(go env GOPATH)/bin
+bindkey -v
 
-# Directories
-alias school="cd ~/Nextcloud/Documents/Schule/"
-alias cloud="cd ~/Nextcloud"
-alias edubot="cd ~/Programming/edubot"
-alias dotfiles="cd ~/Programming/dotfiles"
-alias pgdp="cd ~/Nextcloud/ExternalHDD/TUM/1.\ Semester/PGDP/"
-alias era="cd ~/Nextcloud/ExternalHDD/TUM/1.\ Semester/ERA/"
-alias ds="cd ~/Nextcloud/ExternalHDD/TUM/1.\ Semester/DS/"
-alias eidi="cd ~/Nextcloud/ExternalHDD/TUM/1.\ Semester/EIDI/"
-alias db="cd ~/Nextcloud/ExternalHDD/TUM/1.\ Semester/GDB/"
-alias fix="stty sane"
-alias tum="cd ~/Nextcloud/ExternalHDD/TUM"
+# Zsh settings for history
+HISTORY_IGNORE="(ls|[bf]g|exit|reset|clear|cd|cd ..|cd..)"
+HISTSIZE=25000
+HISTFILE=~/.zsh_history
+SAVEHIST=100000
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY
+
+# nf [-NUM] [COMMENTARY...] -- never forget last N commands
+nf() {
+  local n=-1
+  [[ "$1" = -<-> ]] && n=$1 && shift
+  fc -lnt ": %Y-%m-%d %H:%M ${*/\%/%%} ;" $n | tee -a .neverforget
+}
+
+# Say how long a command took, if it took more than 30 seconds
+export REPORTTIME=30
+
+# Colour output on Mac OS
+export CLICOLOR=1

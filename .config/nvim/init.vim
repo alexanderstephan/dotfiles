@@ -1,3 +1,4 @@
+"Plugins
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'dense-analysis/ale' " For Linting

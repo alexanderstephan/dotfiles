@@ -1,23 +1,50 @@
-"Plugins
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'dense-analysis/ale' " For Linting
-Plug 'lervag/vimtex' "LaTeX suite
-Plug 'scrooloose/nerdtree' "File manager
+" Pseudo IDE
+Plug 'scrooloose/nerdtree' " File manager
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'neomake/neomake'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'itchyny/lightline.vim'
-Plug 'brooth/far.vim'                     " Find and replace
-Plug 'nightsense/cosmic_latte'            " Cosmic Latte
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Language support
+Plug 'neovimhaskell/haskell-vim'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+Plug 'lervag/vimtex' "LaTeX suite
+
+" Color themes
+Plug 'nightsense/cosmic_latte' " Cosmic Latte
+Plug 'NLKNguyen/papercolor-theme'
+
+" Fancy Plugins
+Plug 'itchyny/lightline.vim' "Status bar
+Plug 'brooth/far.vim' " Find and replace
 
 call plug#end()
+
+" Tab completion for coc
+inoremap <silent><expr> <TAB>
+		\ pumvisible() ? "\<C-n>" :
+		\ <SID>check_back_space() ? "\<TAB>" :
+		\ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+		let col = col('.') - 1
+		return !col || getline('.')[col - 1] =~# '\s'
+endfunction
+
+" Auto start NERDTree when no file selected
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Open NERDTree with ctrl + N
+map <C-n> :NERDTreeToggle<CR>
+
+syntax on
 
 filetype on
 filetype plugin on
 filetype plugin indent on
+colorscheme papercolor
 
 set nocompatible
 set completeopt+=noselect
@@ -26,16 +53,20 @@ set showtabline=1
 set relativenumber
 set clipboard+=unnamedplus
 
+" Enable mouse mode, especially convient for NERDTree
+set mouse=a
+
 " Make tabs appear smaller
 set tabstop=4
+set softtabstop=0 noexpandtab
+set shiftwidth=4
 
 "set list " Enables indentation highlighting
 
 " Specify a directory for plugins
 set rtp+=~/.local/share/nvim/plugged
 
-" Settings for plugins
-let g:deoplete#enable_at_startup=1
+" Settings for go 
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_fields = 1
@@ -46,7 +77,6 @@ let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 let g:go_auto_sameids = 0
 let g:go_fmt_command = "goimports"
-let g:deoplete#enable_at_startup = 1
 
 " settings for vimtex
 let g:vimtex_view_general_viewer = 'Zathura'

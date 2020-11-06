@@ -12,25 +12,18 @@ Plug 'lervag/vimtex' "LaTeX suite
 
 " Color themes
 Plug 'nightsense/cosmic_latte' " Cosmic Latte
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'NLKNguyen/papercolor-theme' " Paper color
+Plug 'morhetz/gruvbox' " Gruvbox
 
 " Fancy Plugins
-Plug 'itchyny/lightline.vim' "Status bar
+Plug 'itchyny/lightline.vim' " Status bar
 Plug 'brooth/far.vim' " Find and replace
 
 call plug#end()
 
-" Tab completion for coc
-inoremap <silent><expr> <TAB>
-		\ pumvisible() ? "\<C-n>" :
-		\ <SID>check_back_space() ? "\<TAB>" :
-		\ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-		let col = col('.') - 1
-		return !col || getline('.')[col - 1] =~# '\s'
-endfunction
+" Enable syntax highlighting and select color scheme
+syntax on
+colorscheme gruvbox
 
 " Auto start NERDTree when no file selected
 autocmd StdinReadPre * let s:std_in=1
@@ -39,12 +32,9 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Open NERDTree with ctrl + N
 map <C-n> :NERDTreeToggle<CR>
 
-syntax on
-
 filetype on
 filetype plugin on
 filetype plugin indent on
-colorscheme papercolor
 
 set nocompatible
 set completeopt+=noselect
@@ -52,16 +42,15 @@ set hidden
 set showtabline=1
 set relativenumber
 set clipboard+=unnamedplus
-
-" Enable mouse mode, especially convient for NERDTree
-set mouse=a
+set mouse=a " Enable mouse mode, especially convient for NERDTree
 
 " Make tabs appear smaller
 set tabstop=4
 set softtabstop=0 noexpandtab
 set shiftwidth=4
 
-"set list " Enables indentation highlighting
+"Enables indentation highlighting
+set list 
 
 " Specify a directory for plugins
 set rtp+=~/.local/share/nvim/plugged
@@ -80,3 +69,15 @@ let g:go_fmt_command = "goimports"
 
 " settings for vimtex
 let g:vimtex_view_general_viewer = 'Zathura'
+
+" Tab completion for coc
+inoremap <silent><expr> <TAB>
+		\ pumvisible() ? "\<C-n>" :
+		\ <SID>check_back_space() ? "\<TAB>" :
+		\ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+		let col = col('.') - 1
+		return !col || getline('.')[col - 1] =~# '\s'
+endfunction

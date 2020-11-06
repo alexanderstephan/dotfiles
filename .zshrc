@@ -1,5 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 source /Users/Alexander/.antigen.zsh
 
 # Load the oh-my-zsh's library
@@ -50,16 +48,21 @@ alias pi="ssh pi@raspberrypi"
 alias off="halt -p"
 alias vim="nvim"
 alias v="nvim"
+alias vimrc="nvim ~/.config/nvim/init.vim"
+alias website="cd ~/Nextcloud/Local/Programming/Web/mySite/"
 
 # File paths
-alias tum='cd ~/Nextcloud/Local/TUM/2.Semester'
-alias linalg='cd ~/Nextcloud/Local/TUM/2.Semester/LINALG/'
-alias grnvs='cd ~/Nextcloud/Local/TUM/2.Semester/GRNVS/'
-alias eist='cd ~/Nextcloud/Local/TUM/2.Semester/EIST/'
-alias it='cd ~/Nextcloud/Local/TUM/2.Semester/Italienisch\ A1.2/'
-alias gad='cd ~/Nextcloud/Local/TUM/2.Semester/GAD/'
-alias erap='cd ~/Nextcloud/Local/TUM/2.Semester/ERA-Praktikum/'
+alias tum='cd ~/Nextcloud/Local/TUM/'
 alias rechnerhalle='ssh stephaal@lxhalle.in.tum.de'
+alias dev='cd ~/Nextcloud/Local/Programming'
+alias website='cd ~/Nextcloud/Local/Programming/Web/mySite/'
+
+# Paths for current semester
+alias gbs='cd ~/Nextcloud/Local/TUM/WS21/GBS/'
+alias anal='cd ~/Nextcloud/Local/TUM/WS21/ANAL/'
+alias epub='cd ~/Nextcloud/Local/TUM/WS21/EPUB/'
+alias fpv='cd ~/Nextcloud/Local/TUM/WS21/FPV/'
+alias db='cd ~/Nextcloud/Local/TUM/WS21/GDB/'
 
 export GOPATH=~/Nextcloud/Local/Programming/go
 export PATH=$PATH:$(go env GOPATH)/bin
@@ -88,3 +91,6 @@ export REPORTTIME=30
 
 # Colour output on Mac OS
 export CLICOLOR=1
+[ -f "/Users/alexander/.ghcup/env" ] && source "/Users/alexander/.ghcup/env" # ghcup-env
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+PATH=$PATH:/Users/alexander/.local/bin/

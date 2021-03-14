@@ -6,14 +6,17 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Language support
-Plug 'neovimhaskell/haskell-vim'
+" Plug 'neovimhaskell/haskell-vim'
+Plug 'alx741/vim-hindent'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'lervag/vimtex' "LaTeX suite
+Plug 'HE7086/cyp-vim-syntax'
 
 " Color themes
 Plug 'nightsense/cosmic_latte' " Cosmic Latte
 Plug 'NLKNguyen/papercolor-theme' " Paper color
 Plug 'morhetz/gruvbox' " Gruvbox
+Plug 'ayu-theme/ayu-vim' " Ayu
 
 " Fancy Plugins
 Plug 'itchyny/lightline.vim' " Status bar
@@ -21,9 +24,15 @@ Plug 'brooth/far.vim' " Find and replace
 
 call plug#end()
 
-" Enable syntax highlighting and select color scheme
+" Specify a directory for plugins
+set rtp+=~/.local/share/nvim/plugged
+
+" Enable syntax highlighting and select color schemes
+set termguicolors
+let ayucolor="dark"   " for dark version of theme
+
 syntax on
-colorscheme gruvbox
+colorscheme ayu
 
 " Auto start NERDTree when no file selected
 autocmd StdinReadPre * let s:std_in=1
@@ -40,35 +49,30 @@ set nocompatible
 set completeopt+=noselect
 set hidden
 set showtabline=1
-set relativenumber
-set clipboard+=unnamedplus
+set relativenumber " Show line numbers relative to current line
+set nu rnu " Set only the current line to be absolute
+set clipboard+=unnamedplus " Change default register to system's register
 set mouse=a " Enable mouse mode, especially convient for NERDTree
+set nohlsearch " Disable annoying highlighting after search
 
 " Make tabs appear smaller
-set tabstop=4
-set softtabstop=0 noexpandtab
-set shiftwidth=4
-
-"Enables indentation highlighting
-set list 
-
-" Specify a directory for plugins
-set rtp+=~/.local/share/nvim/plugged
+set tabstop=8
+set softtabstop=0 
+set expandtab 
+set shiftwidth=4 
+set smarttab
 
 " Settings for go 
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_types = 1
-let g:go_auto_sameids = 0
-let g:go_fmt_command = "goimports"
-
-" settings for vimtex
-let g:vimtex_view_general_viewer = 'Zathura'
+let g:go_highlight_build_constraints=1
+let g:go_highlight_extra_types=1
+let g:go_highlight_fields=1
+let g:go_highlight_functions=1 
+let g:go_highlight_methods=1
+let g:go_highlight_operators=1
+let g:go_highlight_structs=1
+let g:go_highlight_types=1
+let g:go_auto_sameids=0
+let g:go_fmt_command="goimports"
 
 "
 " Settings for coc
@@ -238,5 +242,4 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-" Limit pop-up entries
 set pumheight=10

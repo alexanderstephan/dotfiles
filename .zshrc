@@ -34,9 +34,12 @@ if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
-export GOPATH=~/Nextcloud/Local/Programming/go
+# You might not want this
+export GOPATH=~/Programming/go
 export PATH=$PATH:$(go env GOPATH)/bin
-bindkey -v # Enable vim bindings
+
+# Enable vim bindings
+bindkey -v 
 
 # Zsh settings for history
 HISTORY_IGNORE="(ls|[bf]g|exit|reset|clear|cd|cd ..|cd..)"

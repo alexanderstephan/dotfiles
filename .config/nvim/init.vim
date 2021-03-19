@@ -1,5 +1,5 @@
 call plug#begin('~/.local/share/nvim/plugged')
-
+" Test
 " Pseudo IDE
 Plug 'scrooloose/nerdtree' " File manager
 Plug 'Xuyuanp/nerdtree-git-plugin'

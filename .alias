@@ -1,0 +1,41 @@
+# Common commands
+alias grep="grep --color=auto"
+alias diff="diff --color=auto"
+alias up="sudo ip link set wlp3s0 up && sudo ip link set enp0s25 up"
+alias down="sudo ip link set wlp3s0 down && sudo ip link set enp0s25 down"
+alias ka="killall"
+alias h="history"
+alias c="clear"
+alias p="cat"
+alias null="/dev/null"
+alias ga="git add *"
+alias xx="xrdb ~/.Xresources"
+alias p="sudo pacman"
+alias yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'"
+alias YT="youtube-viewer"
+alias pi="ssh pi@raspberrypi"
+alias off="halt -p"
+alias vim="nvim"
+alias v="nvim"
+alias vimrc="nvim ~/.config/nvim.vim"
+alias website="cd ~/Programming/Web/mySite/"
+
+# File paths
+alias tum='cd ~/TUM'
+alias rechnerhalle='ssh stephaal@lxhalle.in.tum.de'
+alias dev='cd ~/Programming'
+alias website='cd ~/Programming/Web/mySite/'
+
+# Paths for winter term 2021
+alias gbs='cd ~/TUM/WS21/GBS/'
+alias anal='cd ~/TUM/WS21/ANAL/'
+alias epub='cd ~/TUM/WS21/EPUB/'
+alias fpv='cd ~/TUM/WS21/FPV/'
+alias db='cd ~/TUM/WS21/GDB/'
+
+# Paths for summer term 2021
+alias grnvs='cd ~/TUM/SS21/GRNVS/'
+alias eist='cd ~/TUM/SS21/EIST/'
+alias med2='cd ~/TUM/SS21/MED2/'
+alias dwt='cd ~/TUM/SS21/DWT/'
+alias theo='cd ~/TUM/SS21/THEO/'

@@ -19,6 +19,29 @@ alias vim="nvim"
 alias v="nvim"
 alias vimrc="nvim ~/.config/nvim.vim"
 alias website="cd ~/Programming/Web/mySite/"
+alias df='df -h'
+
+# Confirm before overwriting
+alias cp='cpi -i'
+alias mv='mv -i'
+alias rm='rm  -i'
+
+# Changing "ls" to "exa"
+alias ls='exa -al --color=always --group-directories-first' # my preferred listing
+alias la='exa -a --color=always --group-directories-first'  # all files and dirs
+alias ll='exa -l --color=always --group-directories-first'  # long format
+alias lt='exa -aT --color=always --group-directories-first' # tree listing
+alias l.='exa -a | egrep "^\."'
+
+# Bat is a better cat
+alias cat='bat'
+
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
 
 # File paths
 alias tum='cd ~/TUM'
@@ -39,3 +62,42 @@ alias eist='cd ~/TUM/SS21/EIST/'
 alias med2='cd ~/TUM/SS21/MED2/'
 alias dwt='cd ~/TUM/SS21/DWT/'
 alias theo='cd ~/TUM/SS21/THEO/'
+
+# System updates
+alias up='sudo aura -Syyu'
+alias aurup='sudo aura -ASyyu'
+alias mirrors='sudo pacman-mirrors --fasttrack && sudo pacman -Syyu'
+
+# Get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+
+# Get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+
+# Git
+alias addup='git add -u'
+alias addall='git add .'
+alias branch='git branch'
+alias checkout='git checkout'
+alias clone='git clone'
+alias commit='git commit -m'
+alias fetch='git fetch'
+alias pull='git pull origin'
+alias push='git push origin'
+alias stat='git status'  # 'status' is protected name so using 'stat' instead
+alias tag='git tag'
+alias newtag='git tag -a'
+
+# youtube-dl
+alias yta-aac="youtube-dl --extract-audio --audio-format aac "
+alias yta-best="youtube-dl --extract-audio --audio-format best "
+alias yta-flac="youtube-dl --extract-audio --audio-format flac "
+alias yta-m4a="youtube-dl --extract-audio --audio-format m4a "
+alias yta-mp3="youtube-dl --extract-audio --audio-format mp3 "
+alias yta-opus="youtube-dl --extract-audio --audio-format opus "
+alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
+alias yta-wav="youtube-dl --extract-audio --audio-format wav "
+alias ytv-best="youtube-dl -f bestvideo+bestaudio "
+

@@ -10,7 +10,7 @@ antigen bundle command-not-found
 
 # Highlighting
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen theme philips
+antigen theme candy 
 antigen apply
 
 # Uncomment the following line to display red dots whilst waiting for completion.

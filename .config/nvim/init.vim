@@ -17,6 +17,7 @@ Plug 'nightsense/cosmic_latte' " Cosmic Latte
 Plug 'NLKNguyen/papercolor-theme' " Paper color
 Plug 'morhetz/gruvbox' " Gruvbox
 Plug 'ayu-theme/ayu-vim' " Ayu
+Plug 'phanviet/vim-monokai-pro' " Monokai Pro
 
 " Fancy Plugins
 Plug 'itchyny/lightline.vim' " Status bar
@@ -28,11 +29,13 @@ call plug#end()
 set rtp+=~/.local/share/nvim/plugged
 
 " Enable syntax highlighting and select color schemes
-set termguicolors
 let ayucolor="dark"   " for dark version of theme
+set termguicolors
 
 syntax on
-colorscheme ayu
+colorscheme gruvbox
+highlight Normal guibg=none
+highlight NonText guibg=none
 
 " Auto start NERDTree when no file selected
 autocmd StdinReadPre * let s:std_in=1

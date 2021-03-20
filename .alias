@@ -17,7 +17,7 @@ alias pi="ssh pi@raspberrypi"
 alias off="halt -p"
 alias vim="nvim"
 alias v="nvim"
-alias vimrc="nvim ~/.config/nvim.vim"
+alias vimrc="nvim ~/.config/init.vim"
 alias website="cd ~/Programming/Web/mySite/"
 alias df='df -h'
 
@@ -65,7 +65,7 @@ alias theo='cd ~/TUM/SS21/THEO/'
 
 # System updates
 alias up='sudo aura -Syyu'
-alias aurup='sudo aura -ASyyu'
+alias aurup='sudo aura -Ayyu'
 alias mirrors='sudo pacman-mirrors --fasttrack && sudo pacman -Syyu'
 
 # Get top process eating memory

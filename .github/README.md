@@ -29,3 +29,4 @@ yadm clone https://github.com/alexanderstephan/dotfiles
 - [neovim](https://neovim.io/)
 - [kitty](https://sw.kovidgoyal.net/kitty/)
 - [fish](https://fishshell.com/)
+- [yadm](https://yadm.io/)

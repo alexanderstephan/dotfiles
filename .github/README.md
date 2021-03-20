@@ -23,7 +23,9 @@ brew install yadm &&
 yadm clone https://github.com/alexanderstephan/dotfiles
 ```
 
-## Programs used
+## Programs and projects used
 
-- [neovim] (https://neovim.io/)
-- [kitty] (https://sw.kovidgoyal.net/kitty/)
+- [Manjaro Gnome](https://www.manjaro.org/downloads/official/gnome/)
+- [neovim](https://neovim.io/)
+- [kitty](https://sw.kovidgoyal.net/kitty/)
+- [fish](https://fishshell.com/)

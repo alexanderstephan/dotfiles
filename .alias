@@ -18,11 +18,11 @@ alias off="halt -p"
 alias vim="nvim"
 alias v="nvim"
 alias vimrc="nvim ~/.config/init.vim"
-alias website="cd ~/Programming/Web/mySite/"
+alias website="cd ~/Programming/Web/alexanderstephan.xyz/"
 alias df='df -h'
 
 # Confirm before overwriting
-alias cp='cpi -i'
+alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm  -i'
 

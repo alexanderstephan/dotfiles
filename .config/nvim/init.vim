@@ -2,6 +2,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Test
 " Pseudo IDE
 Plug 'scrooloose/nerdtree' " File manager
+Plug 'scrooloose/nerdtree' " File manager
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -48,15 +49,15 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 
-set nocompatible
-set completeopt+=noselect
+" set nocompatible
+" set completeopt+=noselect
 set hidden
 set showtabline=1
 set relativenumber " Show line numbers relative to current line
 set nu rnu " Set only the current line to be absolute
-set clipboard+=unnamedplus " Change default register to system's register
 set mouse=a " Enable mouse mode, especially convient for NERDTree
 set nohlsearch " Disable annoying highlighting after search
+set clipboard^=unnamed,unnamedplus
 
 " Make tabs appear smaller
 set tabstop=8

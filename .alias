@@ -15,11 +15,12 @@ alias yt="youtube-dl --add-metadata -i -o '%(upload_date)s-%(title)s.%(ext)s'"
 alias YT="youtube-viewer"
 alias pi="ssh pi@raspberrypi"
 alias off="halt -p"
-alias vim="nvim"
+# alias vim="nvim"
 alias v="nvim"
 alias vimrc="nvim ~/.config/init.vim"
 alias website="cd ~/Programming/Web/alexanderstephan.xyz/"
 alias df='df -h'
+alias al='nvim ~/.alias'
 
 # Confirm before overwriting
 alias cp='cp -i'
@@ -47,7 +48,7 @@ alias .5='cd ../../../../..'
 alias tum='cd ~/TUM'
 alias rechnerhalle='ssh stephaal@lxhalle.in.tum.de'
 alias dev='cd ~/Programming'
-alias website='cd ~/Programming/Web/mySite/'
+alias website='cd ~/Programming/Web/alexanderstephan.xyz/'
 
 # Paths for winter term 2021
 alias gbs='cd ~/TUM/WS21/GBS/'
@@ -55,6 +56,7 @@ alias anal='cd ~/TUM/WS21/ANAL/'
 alias epub='cd ~/TUM/WS21/EPUB/'
 alias fpv='cd ~/TUM/WS21/FPV/'
 alias db='cd ~/TUM/WS21/GDB/'
+alias med1='cd ~/TUM/WS21/MED1'
 
 # Paths for summer term 2021
 alias grnvs='cd ~/TUM/SS21/GRNVS/'
@@ -100,4 +102,3 @@ alias yta-opus="youtube-dl --extract-audio --audio-format opus "
 alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
 alias yta-wav="youtube-dl --extract-audio --audio-format wav "
 alias ytv-best="youtube-dl -f bestvideo+bestaudio "
-

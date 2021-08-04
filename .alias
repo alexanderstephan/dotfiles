@@ -60,10 +60,13 @@ alias med1='cd ~/TUM/WS21/MED1'
 
 # Paths for summer term 2021
 alias grnvs='cd ~/TUM/SS21/GRNVS/'
+alias gprog='cd ~/TUM/SS21/GRNVS/u1590/assignment4'
 alias eist='cd ~/TUM/SS21/EIST/'
 alias med2='cd ~/TUM/SS21/MED2/'
 alias dwt='cd ~/TUM/SS21/DWT/'
 alias theo='cd ~/TUM/SS21/THEO/'
+alias hiwi='cd ~/TUM/SS21/HIWI/'
+alias skript='cd ~/TUM/SS21/HIWI/gbs-skript/skript/'
 
 # System updates
 alias up='sudo aura -Syyu'
@@ -83,7 +86,7 @@ alias addup='git add -u'
 alias addall='git add .'
 alias branch='git branch'
 alias checkout='git checkout'
-alias clone='git clone'
+alias cl='git clone'
 alias commit='git commit -m'
 alias fetch='git fetch'
 alias pull='git pull origin'
@@ -91,6 +94,8 @@ alias push='git push origin'
 alias stat='git status'  # 'status' is protected name so using 'stat' instead
 alias tag='git tag'
 alias newtag='git tag -a'
+alias pall='git add . && git commit -m "ILoveEIST" && git push'
+alias track=' git ls-tree -r master --name-only'
 
 # youtube-dl
 alias yta-aac="youtube-dl --extract-audio --audio-format aac "

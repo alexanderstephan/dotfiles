@@ -21,12 +21,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # nm-applet is a desktop environment-independent system tray GUI for it.
 # exec --no-startup-id nm-applet
 
-# use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+# change volume or toggle mute
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -88,7 +86,8 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+c focus child
+bindsym $mod+c focus child
+
 
 # define names for default workspaces for which we configure key bindings later on
 # We use variables to avoid repeating the names in multiple places
@@ -152,6 +151,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+bindsym $mod+m move workspace to output left
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
@@ -195,7 +196,7 @@ bar {
     status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
     position                top
     tray_output             primary
-    tray_padding 4
+    tray_padding 5
     height 28
 
     colors {
@@ -214,6 +215,7 @@ bar {
 
 exec_always --no-startup-id picom -Gb
 exec_always --no-startup-id feh --bg-fill ~/Wallpaper/matthew-smith-5935-unsplash.jpg
-exec_always --no-startup-id setxkbmap us intl
 exec_always --no-startup-id picom &
+exec_always --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
+exec_always --no-startup-id nitrogen --restore
 

@@ -1,30 +1,34 @@
 call plug#begin('~/.local/share/nvim/plugged')
-" Test
+
 " Pseudo IDE
-Plug 'scrooloose/nerdtree' " File manager
-Plug 'scrooloose/nerdtree' " File manager
+Plug 'scrooloose/nerdtree'         " File manager
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/nerdcommenter'
 
 " Language support
-" Plug 'neovimhaskell/haskell-vim'
+Plug 'neovimhaskell/haskell-vim'
 Plug 'alx741/vim-hindent'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
-Plug 'lervag/vimtex' "LaTeX suite
+Plug 'lervag/vimtex'              "LaTeX suite
 Plug 'HE7086/cyp-vim-syntax'
 
 " Color themes
-Plug 'nightsense/cosmic_latte' " Cosmic Latte
+Plug 'nightsense/cosmic_latte'    " Cosmic Latte
 Plug 'NLKNguyen/papercolor-theme' " Paper color
-Plug 'morhetz/gruvbox' " Gruvbox
-Plug 'ayu-theme/ayu-vim' " Ayu
-Plug 'phanviet/vim-monokai-pro' " Monokai Pro
+Plug 'morhetz/gruvbox'            " Gruvbox
+Plug 'ayu-theme/ayu-vim'          " Ayu
+Plug 'phanviet/vim-monokai-pro'   " Monokai Pro
+Plug 'sainnhe/everforest'         " Ever forest
 
 " Fancy Plugins
-Plug 'itchyny/lightline.vim' " Status bar
-Plug 'brooth/far.vim' " Find and replace
+Plug 'itchyny/lightline.vim'      " Status bar
+Plug 'brooth/far.vim'             " Find and replace
 
 call plug#end()
+
+" Fish shell breaks vim appearantly
+set shell=sh
 
 " Specify a directory for plugins
 set rtp+=~/.local/share/nvim/plugged
@@ -37,6 +41,9 @@ syntax on
 colorscheme gruvbox
 highlight Normal guibg=none
 highlight NonText guibg=none
+
+" Set leader key to comma
+let mapleader=","
 
 " Auto start NERDTree when no file selected
 autocmd StdinReadPre * let s:std_in=1
@@ -81,6 +88,18 @@ let g:go_fmt_command="goimports"
 "
 " Settings for coc
 "
+
+" Plug coc status into lightline
+let g:lightline = {
+	\ 'colorscheme': 'wombat',
+	\ 'active': {
+	\   'left': [ [ 'mode', 'paste' ],
+	\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+	\ },
+	\ 'component_function': {
+	\   'cocstatus': 'coc#status'
+	\ },
+	\ }
 
 " Tab completion for coc
 inoremap <silent><expr> <TAB>

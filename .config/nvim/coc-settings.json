@@ -1,5 +1,39 @@
 {
-  "go.goplsOptions": {
-    "completeUnimported": true
-  }
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "coc.preferences.formatOnType": true,
+    "diagnostic.checkCurrentLine": true,
+    "diagnostic.virtualText": true,
+    "diagnostic.enableMessage": "jump",
+    "diagnostic.errorSign": "✖",
+    "diagnostic.warningSign": "⚠",
+    "diagnostic.infoSign": "•",
+    "diagnostic.hintSign": "•",
+    "tailwindCSS.validate": true,
+    "tailwindCSS.emmetCompletions": true,
+    "go.goplsOptions": {
+        "completeUnimported": true
+    },
+    "diagnostic.displayByAle": true,
+    "languageserver": {
+        "latex": {
+            "command": "/usr/bin/texlab",
+            "filetypes": ["tex", "bib", "plaintex", "context"]
+        },
+        "dockerfile": {
+            "command": "docker-langserver",
+            "filetypes": ["dockerfile"],
+            "args": ["--stdio"]
+        },
+        "ccls": {
+            "enable": false,
+            "command": "ccls",
+            "filetypes": ["c", "cpp", "objc", "objcpp"],
+            "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                }
+            }
+        }
+    }
 }

@@ -30,3 +30,18 @@ yadm clone https://github.com/alexanderstephan/dotfiles
 - [kitty](https://sw.kovidgoyal.net/kitty/)
 - [fish](https://fishshell.com/)
 - [yadm](https://yadm.io/)
+
+## Useful vim bindings:
+
+- Toggle comment in current line or selection: <kbd>Space</kbd> + <kbd>C</kbd> + <kbd>I</kbd>
+- Switch branch: <kbd>Space</kbd> + <kbd>G</kbd> + <kbd>B</kbd>
+- Go to definition: <kbd>G</kbd> + <kbd>D</kbd>
+- Go to implementation: <kbd>G</kbd> + <kbd>I</kbd>
+- Rename variable: <kbd>Space</kbd> + <kbd>R</kbd> + <kbd>N</kbd>
+- Format selected code: <kbd>Space</kbd> + <kbd>F</kbd>
+- Show documentation in new window: <kbd>K</kbd>
+- Fix formatting: <kbd>Space</kbd> + <kbd>A</kbd> + <kbd>M</kbd>
+- Open fuzzy finder: <kbd>Space</kbd> + <kbd>F</kbd> + <kbd>F</kbd>
+- Toggle floating terminal: <kbd>F1</kbd>
+- Open NERDTree: <kbd>Ctrl</kbd> + <kbd>N</kbd>
+

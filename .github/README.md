@@ -25,7 +25,7 @@ yadm clone https://github.com/alexanderstephan/dotfiles
 
 ## Programs and projects used
 
-- [Manjaro Gnome](https://www.manjaro.org/downloads/official/gnome/)
+- [Manjaro](https://www.manjaro.org/downloads)
 - [neovim](https://neovim.io/)
 - [kitty](https://sw.kovidgoyal.net/kitty/)
 - [fish](https://fishshell.com/)

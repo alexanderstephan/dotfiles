@@ -3,23 +3,18 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $terminal kitty
+
+# i3-gaps gap settings
+smart_gaps on # Remove gaps if there is only one window
+gaps inner 8
+gaps outer 2
 
 for_window [class="^.*"] border pixel 3
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 7
-
-# the combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# networkManager is the most popular way to manage wireless networks on Linux,
-# nm-applet is a desktop environment-independent system tray GUI for it.
-# exec --no-startup-id nm-applet
 
 # change volume or toggle mute
 bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
@@ -29,80 +24,79 @@ bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec kitty
+# Start a terminal
+bindsym $mod+Return exec $terminal
 
-# kill focused window
+# Kill focused window
 bindsym $mod+Shift+q kill
 
-# a more modern dmenu replacement, rofi
-bindsym $mod+d exec "rofi -show drun -theme slate"
+# Rofi is primarily used as an application launcher here
+bindsym $mod+d exec "rofi -show drun"
 
-# change focus
+# Change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
+# Alternatively, you can use the arrow keys
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
+# Move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+odiaeresis move right
 
-# alternatively, you can use the cursor keys:
+# Alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
+# Split in horizontal orientation
 bindsym $mod+g split h
 
-# split in vertical orientation
+# Split in vertical orientation
 bindsym $mod+v split v
 
-# enter fullscreen mode for the focused container
+# Enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
+# Change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
+# Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows
+# Change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
+# Focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
+# Focus the child container
 bindsym $mod+c focus child
 
-
-# define names for default workspaces for which we configure key bindings later on
+# Define names for default workspaces for which we configure key bindings later on
 # We use variables to avoid repeating the names in multiple places
-set $ws1 "1: "
-set $ws2 "2: "
-set $ws3 "3: "
-set $ws4 "4: "
-set $ws5 "5: "
-set $ws6 "6: "
-set $ws7 "7: "
-set $ws8 "8: "
-set $ws9 "9: "
-set $ws10 "10: "
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
-# switch to workspace
+# Switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
@@ -114,7 +108,7 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-# move focused container to workspace
+# Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
@@ -126,34 +120,37 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# assign an application to a specific workspace
-# make sure to use the instance class name
+# Assign an application to a specific workspace
+# Make sure to use the instance class name
 assign [class="Xfce4-terminal"] $ws1
 assign [class="Chromium"] $ws2
 assign [class="Navigator"] $ws2
 assign [class="firefox"] $ws2
 assign [class="qutebrowser"] $ws2
 assign [class="Atom"] $ws3
+assign [class="Thunderbird"] $ws4
 assign [class="Spotify"] $ws5
 assign [class="spotify"] $ws5
 assign [class="discord"] $ws7
+assign [class="Steam"] $ws6
 assign [class="Telegram"] $ws7
 assign [class="Steam"] $ws7
 assign [class="Code"] $ws7
-assign [class="Thunderbird"] $ws4
 assign [class="Element"] $ws7
-assign [class="Steam"] $ws6
 
-# reload the configuration file
+# Reload the configuration file
 bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# Move stuff on workspace to other monitor
 bindsym $mod+m move workspace to output left
 
-# resize window (you can also use the mouse for that)
+# Resize window (you can also use the mouse for that)
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
     # Pressing left will shrink the window’s width.
@@ -179,7 +176,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# class                 border  backgr. text    indicator child_border
+# Colors
+# Class                 Border  Backgr. Text    Indicator Child_border
 client.focused          #2b83a6 #2b83a6 #ffffff #dddddd   #2b83a6
 client.focused_inactive #212121 #212121 #86888c #292d2e   #5a5a5a
 client.unfocused        #212121 #212121 #86888c #292d2e   #5a5a5a
@@ -187,35 +185,44 @@ client.urgent           #d64e4e #d64e4e #ffffff #d64e4e   #d64e4e
 client.placeholder      #212121 #0c0c0c #ffffff #212121   #262626
 client.background       #212121
 
-# i3-gaps
-smart_gaps on
-gaps inner 8
-gaps outer 2
+# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+# they are included here as an example. Modify as you see fit.
 
-bar {
-    status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
-    position                top
-    tray_output             primary
-    tray_padding 5
-    height 28
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-    colors {
-        background  #212121
-        statusline  #dddddd
-        separator   #666666
-        
-        # class             border  backgr. text
-        focused_workspace   #2b83a6 #2b83a6 #ffffff
-        active_workspace    #212121 #212121 #ffffff
-        inactive_workspace  #212121 #212121 #86888c
-        urgent_workspace    #d64e4e #d64e4e #ffffff
-        binding_mode        #229c56 #229c56 #ffffff
-    }
-}
+# networkManager is the most popular way to manage wireless networks on Linux,
+# nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
 
-exec_always --no-startup-id picom -Gb
-exec_always --no-startup-id feh --bg-fill ~/Wallpaper/matthew-smith-5935-unsplash.jpg
-exec_always --no-startup-id picom &
+# Set keyboard layout to us international (for german characters)
+exec_always --no-startup-id setxkbmap us altgr-intl
+
+# Notification daemon: Useful for preventing electron apps with notifications from crashing
+exec_always --no-startup-id dunst
+
+# Compositor for smooth animations (b = Start as daemon)
+exec_always --no-startup-id picom -b
+
+# Unlock keyring on login
 exec_always --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11
+
+# Restore the last set wallpaper
 exec_always --no-startup-id nitrogen --restore
+
+# Reminder for backup
+exec_always --no-startup-id /usr/lib/deja-dup/deja-dup-monitor
+
+# For data synchronization
+exec_always --no-startup-id nextcloud
+
+# For location services, e.g. used by Redshift
+exec_always --no-startup-id /usr/lib/geoclue-2.0/demos/agent
+
+# System bar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh --material
+
+# Redshift to protect eyes
+exec --no-startup-id redshift-gtk
 

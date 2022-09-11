@@ -197,4 +197,3 @@ function! s:show_documentation()
   endif
 endfunction
 
-

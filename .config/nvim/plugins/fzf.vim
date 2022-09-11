@@ -16,3 +16,6 @@ nmap <leader>h :History<cr>
 nmap <leader>r :Rg<cr>
 nmap <leader>R :Rg<space>
 nmap <leader>gb :GBranches<cr>
+nmap <leader>gg :GFiles<cr>
+nmap <leader>cc :Colors<cr>
+

@@ -14,7 +14,7 @@ set pumheight=10
 
 " Enable spellcheck
 set spell
-set spelllang=de_20
+set spelllang=en
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -29,10 +29,6 @@ set cmdheight=2
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=300
-
-set expandtab
-set shiftwidth=4
-set tabstop=4
 
 set wildmode=longest:full,full
 set nowrap
@@ -52,7 +48,7 @@ set hidden
 set showtabline=1
 set relativenumber " Show line numbers relative to current line
 set nu rnu " Set only the current line to be absolute
-set mouse=a " Enable mouse mode, especially convient for NERDTree
+set mouse=a " Enable mouse mode
 set nohlsearch " Disable annoying highlighting after search
 set clipboard^=unnamed,unnamedplus
 set nojoinspaces
@@ -61,10 +57,10 @@ set confirm
 
 " Adjust tabs
 set tabstop=4
-set softtabstop=0
-set expandtab
 set shiftwidth=4
+set expandtab
 set smarttab
+set smartindent
 
 "--------------------------------------------------------------------------
 " Key maps
@@ -109,7 +105,7 @@ nnoremap J mzJ`z
 " Open the current file in the default program
 nmap <leader>x :!xdg-open %<cr><cr>
 
-" Quicky escape to normal mode
+" Quickly escape to normal mode
 imap jj <esc>
 
 " Easy insertion of a trailing ; or , from insert mode
@@ -128,7 +124,7 @@ set rtp+=~/.local/share/nvim/plugged
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Pseudo IDE
-Plug 'scrooloose/nerdtree'         " File manager
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
@@ -141,6 +137,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'tpope/vim-surround'
+Plug 'github/copilot.vim'
+Plug 'tpope/vim-fugitive'
 
 " Language support
 Plug 'neovimhaskell/haskell-vim'
@@ -149,7 +147,6 @@ Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'lervag/vimtex'              "LaTeX suite
 
 " Color themes
-Plug 'nightsense/cosmic_latte'    " Cosmic Latte
 Plug 'NLKNguyen/papercolor-theme' " Paper color
 Plug 'morhetz/gruvbox'            " Gruvbox
 Plug 'ayu-theme/ayu-vim'          " Ayu
@@ -177,5 +174,19 @@ highlight Normal guibg=none
 highlight NonText guibg=none
 
 let $FZF_DEFAULT_COMMAND='find . \( -name node_modules -o -name .git \) -prune -o -print'
+
+" Stupid fix for Coc popup menu
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <C-x><C-z> coc#pum#visible() ? coc#pum#stop() : "\<C-x>\<C-z>"
+" remap for complete to use tab and <cr>
+inoremap <silent><expr> <TAB>
+            \ coc#pum#visible() ? coc#pum#next(1):
+            \ <SID>check_back_space() ? "\<Tab>" :
+            \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <c-space> coc#refresh()
+
+hi CocSearch ctermfg=12 guifg=#18A3FF
+hi CocMenuSel ctermbg=109 guibg=#13354A
 
 

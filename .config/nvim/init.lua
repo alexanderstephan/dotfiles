@@ -1,7 +1,7 @@
 require('base')
-require('highlights')
 require('plugins')
 require('lspconfig').gopls.setup {}
+-- Highlights are loaded after loading the color theme.
 
 local has = function(x)
     return vim.fn.has(x) == 1

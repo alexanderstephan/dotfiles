@@ -1,5 +1,3 @@
-vim.cmd [[ colorscheme gruvbox ]]
-
 -- Enable syntax highlighting and select color schemes
 vim.opt.termguicolors = true
 vim.opt.pumheight = 10

@@ -1,4 +1,3 @@
---------------
 -- Plugins ---
 --------------
 
@@ -57,9 +56,9 @@ packer.startup(function(use)
 
     -- Gruvbox color theme
     use {
-        'morhetz/gruvbox',
+        'folke/tokyonight.nvim',
         config = function()
-            vim.cmd [[colorscheme gruvbox]]
+            vim.cmd [[colorscheme tokyonight]]
             require('highlights')
         end
     }
@@ -74,6 +73,10 @@ packer.startup(function(use)
     use {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim',
+    }
+
+    use {
+        'airblade/vim-gitgutter',
     }
 
     -- Unified highlight for all filetypes
@@ -123,14 +126,9 @@ packer.startup(function(use)
 
     use 'github/copilot.vim'
     use 'neovimhaskell/haskell-vim'
+
     if packer_bootstrap then
         require('packer').sync()
     end
 
-    -- Unused plugins:
-    -- use 'alx741/vim-hindent'
-    -- use 'onsails/lspkind-nvim' -- vscode-like pictograms
-    -- use 'L3MON4D3/LuaSnip'
-    -- use 'nvim-lua/plenary.nvim'
-    -- use 'nvim-telescope/telescope.nvim'
 end)
